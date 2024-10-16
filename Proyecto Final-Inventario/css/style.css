@@ -1,17 +1,23 @@
-/* Add a black background color to the top navigation */
 .topnav {
-    background-color: #333;
+    background: rgb(92,46,67);
+    background: linear-gradient(180deg, rgba(92,46,67,1) 49%, rgba(0,0,0,1) 100%);
     overflow: hidden;
+    
+    /* Flexbox to center content and add spacing */
+    display: flex;
+    justify-content: center; /* Centers the links horizontally */
+    gap: 20%; /* Adds space between the links */
   }
   
-  /* Style the links inside the navigation bar */
   .topnav a {
-    float: left;
-    color: #f2f2f2;
+    color: black;
+    background-color: #DCD6B6;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    font-size: 17px;
+    font-size: 2em;
+    display: inline-block;
+    vertical-align: middle;
   }
   
   /* Change the color of links on hover */
@@ -22,6 +28,10 @@
   
   /* Add a color to the active/current link */
   .topnav a.active {
-    background-color: #04AA6D;
+    background-color: #9B9683;
     color: white;
   }
+
+  /* Gradient for backgrounds in items
+        background-image: linear-gradient(to bottom, #321e2e, #392133, #412437, #49273b, #512a3f, #512a3f, #512a3f, #512a3f, #49273b, #412437, #392133, #321e2e);
+  */      
