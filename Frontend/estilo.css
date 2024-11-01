@@ -1,0 +1,209 @@
+@font-face {
+    font-family: Dalelands_Uncial_Condensed;
+    src: url('DalelandsUncialCondensed.otf') format("opentype");
+}
+
+*
+{
+    font-family: 'Dalelands_Uncial_Condensed', regular;
+}
+
+html{
+    background-color: #5C2E43;
+}
+
+.cuadro {
+    background-color: #863B2D;
+    margin: auto;
+    padding: 15px;
+    -webkit-box-shadow: 10px 11px 22px 1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 11px 22px 1px rgba(0,0,0,0.75);
+    box-shadow: 10px 11px 22px 1px rgba(0,0,0,0.75);
+}
+
+#personaje, #objetos {
+    justify-content: space-between;
+    display: flex;
+}
+
+#avatar, #estadisticas, #dados, #agregar, #modificar, #eliminar{
+    text-align: center;
+    align-items: center;
+}
+
+h1{
+    color: white;
+    font-weight: lighter;
+    background: linear-gradient(to right, #643746, #DABD7C, #643746);
+}
+
+#navegacion {
+    width: 100%;
+    height: 75px;
+    padding: 15px 0px 15px 15px;
+    display: flex;
+    margin-bottom: 25px;
+    background: linear-gradient(to top, #000000, #5C2E43);
+}
+
+.enlace {
+    text-decoration: none;
+    font-weight: bolder;
+    color: black;
+    font-size: 30px;
+    background-color: #DCD6B6;
+    text-align: center;
+    margin: auto;
+    width: 350px;
+    padding-top: 10px;
+    height: 50px;
+}
+
+#dentro1{
+    background-color: #DABD7C;
+}
+
+.funciones {
+    color: black;
+    background: linear-gradient(to right, #5C2E43, #DCD6B6, #5C2E43);
+}
+
+#cuadro1{
+    display: flex;
+    width: 380px;
+}
+
+#cuadro2{
+    width: 125px;
+    padding: 15px;
+    height: auto;
+}
+
+#cuadro3{
+    margin: 20px;
+    display: flex;
+}
+
+#atributos{
+    flex-wrap: wrap;
+    width: 50px;
+    height: auto;
+}
+
+.atri{
+    background-color: #DABD7C;
+    border: none;
+    width: 125px;
+    height: 65px; 
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+#stad{
+    display: flex;
+}
+
+#apariencia{
+    flex-wrap: wrap;
+    width: 50px;
+    height: auto;
+}
+
+.habilidad{
+    display: flex;
+    text-align: center;
+}
+
+.hab{
+    background-color: #C4CCD8;
+    color: black;
+    width: 225px;
+    height: 20px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+.rango{
+    color: white;
+    background-color: #DB2200;
+    border: none;
+    width: 50px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    margin-left: none;
+}
+
+#resetear {
+    color: white;
+    margin: 20px;
+    background-color: #DB2200;
+    border: none;
+    -webkit-box-shadow: 3px 8px 69px 5px rgba(0,0,0,0.75);
+    -moz-box-shadow: 3px 8px 69px 5px rgba(0,0,0,0.75);
+    box-shadow: 3px 8px 69px 5px rgba(0,0,0,0.75);
+    width: 100px;
+    height: 50px;
+}
+
+button{
+    -webkit-box-shadow: 3px 8px 69px 5px rgba(0,0,0,0.75);
+    -moz-box-shadow: 3px 8px 69px 5px rgba(0,0,0,0.75);
+    box-shadow: 3px 8px 69px 5px rgba(0,0,0,0.75);
+    color: black;
+}
+
+.elemento{
+    margin: 20px;
+    background-color: #C4CCD8;
+    width: 100px;
+    border: none;
+    height: 50px;
+}
+
+#scroll1{
+    background-color: #dcd6b6;
+    margin-left: 15px;
+    border-radius: 15px;
+}
+
+#barrita{
+    background-color: #7a7a7a;
+    color: #7a7a7a;
+    font-size: 10px;
+    margin: 2px;
+    border-radius: 15px;
+    height: 100px;
+}
+
+#tiradas{
+    background: linear-gradient(to bottom, #000000, #DABD7C);
+    width: 400px;
+    height: 400px;
+    margin: auto;
+}
+
+#puntaje{
+    margin: auto;
+}
+
+#punt1 button, #punt2 button{
+    background-color: #DABD7C;
+    border: none;
+    width: 100px;
+    height: 50px;
+    font-size: 25px;
+}
+
+.tir{
+    margin-left: 20px;
+    margin-right: 20px;
+    background-color: #C4CCD8;
+    width: 125px;
+    height: 60px;
+    border: none;
+}
+
+#boton{
+    background-color: #DB2200;
+    color: white;
+}
