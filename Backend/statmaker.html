@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D&D Dice Rolls and Point Buy</title>
+    <style>
+        .drop-zone, .result-item, .ability-slot {
+            border: 2px solid #333;
+            padding: 10px;
+            margin: 5px;
+            min-width: 150px;
+            min-height: 50px;
+            display: inline-block;
+            text-align: center;
+            vertical-align: top;
+        }
+        .drop-zone {
+            background-color: #f0f0f0;
+        }
+        .ability-container {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>D&D Drag-and-Drop System</h1>
+    <button onclick="rollDiceSixTimes()">Roll Dice 6 Times</button>
+    <button onclick="generatePredefinedNumbers()">Generate Predefined Numbers</button>
+    <button onclick="initializePointBuy()">Start Point Buy System</button>
+
+    <p id="remainingPoints">Remaining Points: 27</p>
+
+    <div id="abilityBoxes">
+        <!-- Ability boxes with starting value 8 and arrows for adjustment -->
+    </div>
+
+    <button onclick="finalizePointBuy()">Finalize Scores</button>
+
+    <h2>Draggable Scores</h2>
+    <div id="availableScores" class="results-container"></div>
+    
+    <div class="ability-container" id="abilities"></div>
+
+    <h2>Drop Zone</h2>
+    <div id="dropZone" class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)">
+        Drop items here
+    </div>
+
+    <script>
+        const POINT_COSTS = { 8: 0, 9: 1, 10: 2, 11: 3, 12: 4, 13: 5, 14: 7, 15: 9 };
+        const MAX_POINTS = 27;
+        let remainingPoints = MAX_POINTS;
+        const abilityScores = {
+            strength: 8,
+            dexterity: 8,
+            constitution: 8,
+            intelligence: 8,
+            wisdom: 8,
+            charisma: 8
+        };
+
+        function rollDice() {
+            let dice = [];
+            for (let i = 0; i < 4; i++) {
+                dice.push(Math.floor(Math.random() * 6) + 1);
+            }
+            dice.sort((a, b) => a - b);
+            dice.shift();
+            const sum = dice.reduce((total, num) => total + num, 0);
+            return { dice, sum };
+        }
+
+        function rollDiceSixTimes() {
+    let resultsHTML = '';
+    document.getElementById("availableScores").innerHTML = ''; // Clear previous results
+    document.getElementById("abilities").innerHTML = ''; // Clear ability slots for Point Buy
+
+    for (let i = 1; i <= 6; i++) {
+        const { dice, sum } = rollDice();
+        resultsHTML += `
+            <div class="result-item" id="result-${i}" draggable="true" ondragstart="drag(event)">
+                ${sum}
+            </div>
+        `;
+    }
+
+    document.getElementById("availableScores").innerHTML = resultsHTML;
+    document.getElementById("remainingPoints").style.display = "none"; // Hide remaining points
+}
+
+function generatePredefinedNumbers() {
+    const predefinedNumbers = [15, 14, 13, 12, 10, 8];
+    let resultsHTML = '';
+    document.getElementById("availableScores").innerHTML = ''; // Clear previous results
+    document.getElementById("abilities").innerHTML = ''; // Clear ability slots for Point Buy
+
+    predefinedNumbers.forEach((num, index) => {
+        resultsHTML += `
+            <div class="result-item" id="predefined-${index}" draggable="true" ondragstart="drag(event)">
+                ${num}
+            </div>
+        `;
+    });
+
+    document.getElementById("availableScores").innerHTML = resultsHTML;
+    document.getElementById("remainingPoints").style.display = "none"; // Hide remaining points
+}
+
+        function initializePointBuy() {
+            document.getElementById("abilityBoxes").innerHTML = ''; // Clear previous ability boxes
+            for (const ability in abilityScores) {
+                const abilityBox = document.createElement("div");
+                abilityBox.className = "ability-box";
+                abilityBox.id = `box-${ability}`;
+                
+                abilityBox.innerHTML = `
+                    ${ability.charAt(0).toUpperCase() + ability.slice(1)}: 
+                    <span class="arrow" onclick="decreaseScore('${ability}')">&#9664;</span>
+                    <span id="${ability}-score">${abilityScores[ability]}</span>
+                    <span class="arrow" onclick="increaseScore('${ability}')">&#9654;</span>
+                `;
+                
+                document.getElementById("abilityBoxes").appendChild(abilityBox);
+            }
+            updateRemainingPoints();
+        }
+
+        function updateRemainingPoints() {
+            document.getElementById("remainingPoints").textContent = `Remaining Points: ${remainingPoints}`;
+        }
+
+        function calculateCost(score) {
+            return POINT_COSTS[score] || 0;
+        }
+
+        function increaseScore(ability) {
+            const currentScore = abilityScores[ability];
+            const newScore = currentScore + 1;
+            if (newScore > 15) return;
+
+            const currentCost = calculateCost(currentScore);
+            const newCost = calculateCost(newScore);
+
+            const costDifference = newCost - currentCost;
+            if (remainingPoints >= costDifference) {
+                remainingPoints -= costDifference;
+                abilityScores[ability] = newScore;
+                document.getElementById(`${ability}-score`).textContent = newScore;
+                updateRemainingPoints();
+            } else {
+                alert("Not enough points remaining.");
+            }
+        }
+
+        function decreaseScore(ability) {
+            const currentScore = abilityScores[ability];
+            const newScore = currentScore - 1;
+            if (newScore < 8) return;
+
+            const currentCost = calculateCost(currentScore);
+            const newCost = calculateCost(newScore);
+
+            const costDifference = currentCost - newCost;
+            remainingPoints += costDifference;
+            abilityScores[ability] = newScore;
+            document.getElementById(`${ability}-score`).textContent = newScore;
+            updateRemainingPoints();
+        }
+
+        function finalizePointBuy() {
+            document.getElementById("availableScores").innerHTML = ''; // Clear previous draggable items
+            for (const [ability, score] of Object.entries(abilityScores)) {
+                const scoreElement = document.createElement("div");
+                scoreElement.className = "result-item";
+                scoreElement.draggable = true;
+                scoreElement.ondragstart = drag;
+                scoreElement.id = `${ability}-draggable`;
+                scoreElement.textContent = `${ability.charAt(0).toUpperCase() + ability.slice(1)}: ${score}`;
+                document.getElementById("availableScores").appendChild(scoreElement);
+            }
+        }
+
+        function drag(event) {
+            event.dataTransfer.setData("text", event.target.id);
+        }
+    </script>
+
+</body>
+</html>
