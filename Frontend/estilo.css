@@ -31,7 +31,7 @@ html{
     align-items: center;
 }
 
-h1{
+.per{
     color: white;
     font-weight: lighter;
     background: linear-gradient(to right, #643746, #DABD7C, #643746);
@@ -63,9 +63,19 @@ h1{
     background-color: #DABD7C;
 }
 
-.funciones {
+.func{
+    border: none;
+    text-decoration: none;
+    background-color: none;
     color: black;
     background: linear-gradient(to right, #5C2E43, #DCD6B6, #5C2E43);
+    width: 400px;
+}
+
+.funciones {
+    color: black;
+    font-size: 30px;
+    background-color: none;
 }
 
 #cuadro1{
@@ -82,6 +92,23 @@ h1{
 #cuadro3{
     margin: 20px;
     display: flex;
+}
+
+#cuadro4{
+    display: flex;
+    width: 380px;
+}
+
+#cuadro5{
+    width: 575px;
+    display: flex;
+    padding: 15px;
+    height: auto;
+}
+
+#cuadro6{
+    margin: 20px;
+    width: 380px;
 }
 
 #atributos{
@@ -207,3 +234,181 @@ button{
     background-color: #DB2200;
     color: white;
 }
+
+#objeto{
+    background-color: #DABD7C;
+    padding: 15px;
+    width: 300px;
+}
+
+#obj1{
+    display: flex;
+    margin: 0;
+}
+
+#obj2{
+    display: flex;
+    margin: 0;
+}
+
+#obj3{
+    display: flex;
+    margin: 0;
+}
+
+#obj4{
+    background-color: #C4CCD8;
+    width: 270px;
+    height: 400px;
+    text-align: justify;
+    color: black;
+    padding: 10px 15px 10px 15px;
+    margin-top: 10px;
+    -webkit-box-shadow: 3px 8px 69px 5px rgba(0,0,0,0.75);
+    -moz-box-shadow: 3px 8px 69px 5px rgba(0,0,0,0.75);
+    box-shadow: 3px 8px 69px 5px rgba(0,0,0,0.75);
+    color: black;
+}
+
+#botones{
+    flex-wrap: wrap;
+    width: 50px;
+    height: auto;
+}
+
+.ob{
+    margin: 5px;
+    background-color: #C4CCD8;
+    width: 100px;
+    border: none;
+    height: 50px;
+    color: black;
+    font-size: 20px;
+}
+
+.es{
+    margin: 5px;
+    background-color: #C4CCD8;
+    width: 125px;
+    border: none;
+    height: 50px;
+    color: black;
+    font-size: 20px;
+}
+
+#estaditon{
+    margin-top: 10px;
+}
+
+#imagen{
+    background: linear-gradient(to bottom, #000000, #5C2E43, #5C2E43);
+    width: 150px;
+    height: 150px;
+    margin-right: 10px;
+}
+
+#scroll2{
+    background-color: #dcd6b6;
+    margin-left: 15px;
+    border-radius: 15px;
+}
+
+#barrita2{
+    background-color: #7a7a7a;
+    color: #7a7a7a;
+    font-size: 10px;
+    margin: 2px;
+    border-radius: 15px;
+    height: 100px;
+}
+
+#scroll3{
+    background-color: #dcd6b6;
+    margin-left: 15px;
+    border-radius: 15px;
+}
+
+#barrita3{
+    background-color: #7a7a7a;
+    color: #7a7a7a;
+    font-size: 10px;
+    margin: 2px;
+    border-radius: 15px;
+    height: 100px;
+}
+
+#in1{
+    display: flex;
+}
+
+#in2{
+    display: flex;
+}
+
+.in3{
+    background-color: #DABD7C;
+    margin: 5px;
+    -webkit-box-shadow: 3px 8px 15px 5px rgba(0,0,0,0.75);
+    -moz-box-shadow: 3px 8px 69px 5px rgba(0,0,0,0.75);
+    box-shadow: 3px 8px 3px 5px rgba(0,0,0,0.75);
+    height: 100px;
+}
+
+.in{
+    background-color: #DABD7C;
+    margin: 5px;
+    -webkit-box-shadow: 3px 8px 15px 5px rgba(0,0,0,0.75);
+    -moz-box-shadow: 3px 8px 69px 5px rgba(0,0,0,0.75);
+    box-shadow: 3px 8px 3px 5px rgba(0,0,0,0.75);
+}
+
+.cuad{
+    background: linear-gradient(to bottom, #000000, #5C2E43, #5C2E43, #5C2E43);
+    width: 75px;
+    height: 75px;
+    margin: 10px 10px 35px 10px;
+}
+
+.cuad2{
+    background: linear-gradient(to bottom, #000000, #5C2E43, #5C2E43, #5C2E43);
+    width: 70px;
+    height: 70px;
+    margin: 10px 10px 35px 10px;
+}
+
+#buscador{
+    display: flex;
+    margin: 0;
+    justify-content: center;
+}
+
+#lupa{
+    background-color: #DB2200;
+    color: white;
+    width: 50px;
+    -webkit-box-shadow: 3px 8px 15px 5px rgba(0,0,0,0.75);
+    -moz-box-shadow: 3px 8px 69px 5px rgba(0,0,0,0.75);
+    box-shadow: 3px 8px 3px 5px rgba(0,0,0,0.75);
+}
+
+#text{
+    background-color: #C4CCD8;
+    color: #C4CCD8;
+    margin-right: 10px;
+    margin-left: 10px;
+    -webkit-box-shadow: 3px 8px 15px 5px rgba(0,0,0,0.75);
+    -moz-box-shadow: 3px 8px 69px 5px rgba(0,0,0,0.75);
+    box-shadow: 3px 8px 3px 5px rgba(0,0,0,0.75);
+    width: 300px;
+    border-radius: 25px;
+}
+
+#graninv{
+    margin-top: 20px;
+}
+
+#ap{
+    width: 250px;
+    height: 400px;
+}
+
