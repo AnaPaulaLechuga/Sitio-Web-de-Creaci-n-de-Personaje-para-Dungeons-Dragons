@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang = "en">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="estilo.css">
-<title>Sitio Web de Creación de Personaje para Dungeons & Dragons - Personaje</title>
-<header></header>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="estilo.css">
+        <title>Sitio Web de Creación de Personaje para Dungeons & Dragons - Personaje</title>  
+    </head> 
 <body>
     <div id="navegacion">
         <a class="enlace" href="index1.html">Personaje</a>
@@ -15,18 +16,20 @@
         <div id="avatar">
             <h1 class="per">Avatar</h1>
             <div class="cuadro" id="cuadro1">
-                <div id = "modelo">
-                    <img id= "ap" src="Personajes/Camisa-Elfo-01.png" alt="Elfo">    
+                <div id="modelo">
+                    <img id="cuerpo" src="Personajes/Humano-01.png" alt="Cuerpo">
+                    <img id="camisa" src="Personajes/Camisa-Humano-01.png" alt="Camisa">
+                    <img id="pantalon" src="Personajes/Pantalon-Humano-01.png" alt="Pantalon">
+                    <img id="casco" src="Personajes/Casco-Humano-01.png" alt="Casco">  
                 </div>
-                <div id = "apariencia">
-                    <button class = "elemento">Casco</button>
-                    <button class = "elemento">Ropa</button>
-                    <button class = "elemento">Pantalón</button>
-                    <button class = "elemento">Raza</button>
-                    <button id = "resetear">Resetear</button>
-                    <button class = "elemento">Aleatorio</button>    
+                <div id="apariencia">
+                    <button class="elemento" onclick="cambiarEspecie('Cuerpo')">Especie</button>
+                    <button class="elemento" onclick="cambiarImagen('Casco')">Casco</button>
+                    <button class="elemento" onclick="cambiarImagen('Camisa')">Camisa</button>
+                    <button class="elemento" onclick="cambiarImagen('Pantalon')">Pantalón</button>
+                    <button id="resetear" onclick="resetearImagen()">Resetear</button>
+                    <button class="elemento" onclick="cambiarImagenAleatoria()">Aleatorio</button>    
                 </div>
-                
             </div>
         </div>
         <div id="estadisticas">
@@ -135,4 +138,7 @@
         </div>
     </div>
 </body>
+
+<script src="script.js"></script>
+
 </html>

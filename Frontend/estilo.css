@@ -12,6 +12,20 @@ html{
     background-color: #5C2E43;
 }
 
+#modelo {
+    position: relative;
+    width: 200px; /* Ajusta según el tamaño deseado */
+    height: 400px; /* Ajusta según el tamaño deseado */
+}
+
+#modelo img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Ajusta según el tamaño deseado */
+    height: 100%; /* Ajusta según el tamaño deseado */
+}
+
 .cuadro {
     background-color: #863B2D;
     margin: auto;
