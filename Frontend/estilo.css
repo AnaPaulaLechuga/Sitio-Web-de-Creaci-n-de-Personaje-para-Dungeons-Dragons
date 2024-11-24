@@ -235,6 +235,14 @@ button{
     font-size: 25px;
 }
 
+.punt{
+    background-color: #DABD7C;
+    border: none;
+    width: 100px;
+    height: 50px;
+    font-size: 25px;
+}
+
 .tir{
     margin-left: 20px;
     margin-right: 20px;
