@@ -36,30 +36,33 @@ function cambiarEspecie() {
 }
 
 function cambiarVariedad() {
-    indiceVariedad = (indiceVariedad + 1) % imagenes[especies[indiceEspecie]].Cuerpo.length;
+    const especie = especies[indiceEspecie];
+    indiceVariedad = (indiceVariedad + 1) % imagenes[especie].Cuerpo.length;
     actualizarImagen();
 }
 
 function cambiarImagen(tipo) {
+    const especie = especies[indiceEspecie];
     if (tipo === 'Casco') {
-        indiceCasco = (indiceCasco + 1) % imagenes[especies[indiceEspecie]][tipo].length;
+        indiceCasco = (indiceCasco + 1) % imagenes[especie][tipo].length;
     } else if (tipo === 'Camisa') {
-        indiceCamisa = (indiceCamisa + 1) % imagenes[especies[indiceEspecie]][tipo].length;
+        indiceCamisa = (indiceCamisa + 1) % imagenes[especie][tipo].length;
     } else if (tipo === 'Pantalon') {
-        indicePantalon = (indicePantalon + 1) % imagenes[especies[indiceEspecie]][tipo].length;
+        indicePantalon = (indicePantalon + 1) % imagenes[especie][tipo].length;
     }
     actualizarImagen();
 }
 
 function actualizarImagen() {
     const especie = especies[indiceEspecie];
-    document.getElementById('cuerpo').src = imagenes[especies].Cuerpo[indiceVariedad];
-    document.getElementById('camisa').src = imagenes[especies].Camisa[indiceCamisa];
-    document.getElementById('pantalon').src = imagenes[especies].Pantalon[indicePantalon];
-    document.getElementById('casco').src = imagenes[especies].Casco[indiceCasco];
+    document.getElementById('cuerpo').src = imagenes[especie].Cuerpo[indiceVariedad];
+    document.getElementById('camisa').src = imagenes[especie].Camisa[indiceCamisa];
+    document.getElementById('pantalon').src = imagenes[especie].Pantalon[indicePantalon];
+    document.getElementById('casco').src = imagenes[especie].Casco[indiceCasco];
 }
 
 function resetearImagen() {
+    indiceEspecie = 1; // Humano
     indiceVariedad = 0;
     indiceCasco = 0;
     indiceCamisa = 0;
@@ -68,11 +71,12 @@ function resetearImagen() {
 }
 
 function cambiarImagenAleatoria() {
+    indiceEspecie = Math.floor(Math.random() * especies.length);
     const especie = especies[indiceEspecie];
     indiceVariedad = Math.floor(Math.random() * imagenes[especie].Cuerpo.length);
-    indiceCasco = Math.floor(Math.random() * imagenes[especieActual].Casco.length);
-    indiceCamisa = Math.floor(Math.random() * imagenes[especieActual].Camisa.length);
-    indicePantalon = Math.floor(Math.random() * imagenes[especieActual].Pantalon.length);
+    indiceCasco = Math.floor(Math.random() * imagenes[especie].Casco.length);
+    indiceCamisa = Math.floor(Math.random() * imagenes[especie].Camisa.length);
+    indicePantalon = Math.floor(Math.random() * imagenes[especie].Pantalon.length);
     actualizarImagen();
 }
 
