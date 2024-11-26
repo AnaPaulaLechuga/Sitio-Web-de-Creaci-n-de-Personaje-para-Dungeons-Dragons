@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="estilo.css">
+        <title>Sitio Web de Creación de Personaje para Dungeons & Dragons - Personaje</title>  
+    </head> 
+<body>
+    <div id="personaje">
+        <div id="avatar">
+            <h1 class="per">Avatar</h1>
+            <div class="cuadro" id="cuadro1">
+                <div id="modelo">
+                    <img id="cuerpo" src="Personajes/Humano-01.png" alt="Cuerpo">
+                    <img id="camisa" src="Personajes/Camisa-Humano-01.png" alt="Camisa">
+                    <img id="pantalon" src="Personajes/Pantalon-Humano-01.png" alt="Pantalon">
+                    <img id="casco" src="Personajes/Casco-Humano-01.png" alt="Casco">  
+                </div>
+                <div id="apariencia">
+                    <button class="elemento" onclick="cambiarEspecie()">Especie</button>
+                    <button class="elemento" onclick="cambiarVariedad()">Piel</button>
+                    <button class="elemento" onclick="cambiarImagen('Casco')">Casco</button>
+                    <button class="elemento" onclick="cambiarImagen('Camisa')">Camisa</button>
+                    <button class="elemento" onclick="cambiarImagen('Pantalon')">Pantalón</button>
+                    <button id="resetear" onclick="resetearImagen()">Resetear</button>
+                    <button class="elemento" onclick="cambiarImagenAleatoria()">Aleatorio</button>
+                </div>
+            </div>
+        </div>
+        <div id="estadisticas">
+            <h1 class="per">Estadísticas</h1>
+            <div id = "stad">
+                <div class="cuadro" id="cuadro2">
+                    <div id = "atributos">
+                        <div class="atri drop-zone" id="dropZone-1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                        <div class="atri drop-zone" id="dropZone-2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                        <div class="atri drop-zone" id="dropZone-3" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                        <div class="atri drop-zone" id="dropZone-4" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                        <div class="atri drop-zone" id="dropZone-5" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                        <div class="atri drop-zone" id="dropZone-6" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                    </div>
+                </div>
+                <div class="cuadro" id="cuadro3">
+                    <div id="habilidades">
+                        <div class = "habilidad">
+                            <p class="hab">Atletismo</p> <button class = "rango">0</button>
+                        </div>
+                        <div class = "habilidad">
+                            <p class="hab">Acrobacias</p> <button class = "rango">0</button>
+                        </div>
+                        <div class = "habilidad">
+                            <p class="hab">Juego de manos</p> <button class = "rango">0</button>
+                        </div>
+                        <div class = "habilidad">
+                            <p class="hab">Sigilo</p> <button class = "rango">0</button>
+                        </div>
+                        <div class = "habilidad">
+                            <p class="hab">Arcano</p> <button class = "rango">0</button>
+                        </div>
+                        <div class = "habilidad">
+                            <p class="hab">Historia</p> <button class = "rango">0</button>
+                        </div>
+                        <div class = "habilidad">
+                            <p class="hab">Investigación</p> <button class = "rango">0</button>
+                        </div>
+                        <div class = "habilidad">
+                            <p class="hab">Naturaleza</p> <button class = "rango">0</button>
+                        </div>
+                        <div class = "habilidad">
+                            <p class="hab">Religión</p> <button class = "rango">0</button>
+                        </div>
+                        <div class = "habilidad">
+                            <p class="hab">Trato de animales</p> <button class = "rango">0</button>
+                        </div>
+                        <div class = "habilidad">
+                            <p class="hab">Medicina</p> <button class = "rango">0</button>
+                        </div>
+                        <div class = "habilidad">
+                            <p class="hab">Percepción</p> <button class = "rango">0</button>
+                        </div>
+                        <div class = "habilidad">
+                            <p class="hab">Perspicacia</p> <button class = "rango">0</button>
+                        </div>
+                        <div class = "habilidad">
+                            <p class="hab">Supervivencia</p> <button class = "rango">0</button>
+                        </div>
+                        <div class = "habilidad">
+                            <p class="hab"p>Engaño</p> <button class = "rango">0</button>
+                        </div>
+                        <div class = "habilidad">
+                            <p class="hab">Intimidación</p> <button class = "rango">0</button>
+                        </div>
+                        <div class = "habilidad">
+                            <p class="hab">Interpretación</p> <button class = "rango">0</button>
+                        </div>
+                        <div class = "habilidad">
+                            <p class="hab">Persuasión</p> <button class = "rango">0</button>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>            
+        </div>
+        <div id="dados">
+            <h1 class="per">Generar Estadísticas</h1>
+            <div class="cuadro">
+                <div id = "dats">
+                    <button class = "tir" id = "boton" onclick="rollDiceSixTimes()">4 dados de 6</button>
+                    <button class = "tir" onclick="generatePredefinedNumbers()">Matriz estándar</button>
+                    <button class = "tir" onclick="initializePointBuy()">Comprar puntos</button> 
+                </div>
+                <br>
+                <div id = "tiradas">
+                    <div id="abilityBoxes" style="color: white;">
+
+                    </div>
+                </div>
+                <br>
+                <div id = "availableScores" class="results-container"></div>
+                <div id = "abilities" class="ability-container"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="script.js"></script>
+
+<script>
+    const POINT_COSTS = { 8: 0, 9: 1, 10: 2, 11: 3, 12: 4, 13: 5, 14: 7, 15: 9 };
+    const MAX_POINTS = 27;
+    let remainingPoints = MAX_POINTS;
+    const abilityScores = {
+        strength: 8,
+        dexterity: 8,
+        constitution: 8,
+        intelligence: 8,
+        wisdom: 8,
+        charisma: 8
+    };
+
+    function rollDice() {
+        let dice = [];
+        for (let i = 0; i < 4; i++) {
+            dice.push(Math.floor(Math.random() * 6) + 1);
+        }
+        dice.sort((a, b) => a - b);
+        dice.shift();
+        const sum = dice.reduce((total, num) => total + num, 0);
+        return { dice, sum };
+    }
+
+    function rollDiceSixTimes() {
+let resultsHTML = '';
+document.getElementById("availableScores").innerHTML = ''; // Clear previous results
+document.getElementById("abilities").innerHTML = ''; // Clear ability slots for Point Buy
+
+for (let i = 1; i <= 6; i++) {
+    const { dice, sum } = rollDice();
+    resultsHTML += `
+    
+        <div class="result-item punt" id="result-${i}" draggable="true" ondragstart="drag(event)">
+            ${sum}
+        </div>
+    `;
+}
+
+document.getElementById("availableScores").innerHTML = resultsHTML;
+document.getElementById("remainingPoints").style.display = "none"; // Hide remaining points
+}
+
+function generatePredefinedNumbers() {
+const predefinedNumbers = [15, 14, 13, 12, 10, 8];
+let resultsHTML = '';
+document.getElementById("availableScores").innerHTML = ''; // Clear previous results
+document.getElementById("abilities").innerHTML = ''; // Clear ability slots for Point Buy
+
+predefinedNumbers.forEach((num, index) => {
+    resultsHTML += `
+        <div class="result-item punt" id="predefined-${index}" draggable="true" ondragstart="drag(event)">
+            ${num}
+        </div>
+    `;
+});
+
+document.getElementById("availableScores").innerHTML = resultsHTML;
+document.getElementById("remainingPoints").style.display = "none"; // Hide remaining points
+}
+
+    function initializePointBuy() {
+        const abilityBoxesContainer = document.getElementById("abilityBoxes");
+    abilityBoxesContainer.innerHTML = ''; // Clear previous content
+
+    // Generate ability score boxes
+    for (const ability in abilityScores) {
+        const abilityBox = document.createElement("div");
+        abilityBox.className = "ability-box";
+        abilityBox.id = `box-${ability}`;
+        
+        abilityBox.innerHTML = `
+            ${ability.charAt(0).toUpperCase() + ability.slice(1)}: 
+            <span class="arrow" onclick="decreaseScore('${ability}')">&#9664;</span>
+            <span id="${ability}-score">${abilityScores[ability]}</span>
+            <span class="arrow" onclick="increaseScore('${ability}')">&#9654;</span>
+        `;
+        
+        abilityBoxesContainer.appendChild(abilityBox);
+    }
+
+    // Add the "Remaining Points" paragraph
+    const remainingPointsParagraph = document.createElement("p");
+    remainingPointsParagraph.id = "remainingPoints";
+    remainingPointsParagraph.textContent = `Remaining Points: ${remainingPoints}`;
+    abilityBoxesContainer.appendChild(remainingPointsParagraph);
+
+    // Add the "Finalizar compra de puntos" button
+    const finalizeButton = document.createElement("button");
+    finalizeButton.textContent = "Finalizar compra de puntos";
+    finalizeButton.onclick = finalizePointBuy; // Assign the finalizePointBuy function to the button
+    finalizeButton.className = "finalize-button"; // Optional: Add a class for styling
+    abilityBoxesContainer.appendChild(finalizeButton);
+
+    updateRemainingPoints(); // Update the remaining points display
+}
+
+
+    function updateRemainingPoints() {
+        document.getElementById("remainingPoints").textContent = `Remaining Points: ${remainingPoints}`;
+    }
+
+    function calculateCost(score) {
+        return POINT_COSTS[score] || 0;
+    }
+
+    function increaseScore(ability) {
+        const currentScore = abilityScores[ability];
+        const newScore = currentScore + 1;
+        if (newScore > 15) return;
+
+        const currentCost = calculateCost(currentScore);
+        const newCost = calculateCost(newScore);
+
+        const costDifference = newCost - currentCost;
+        if (remainingPoints >= costDifference) {
+            remainingPoints -= costDifference;
+            abilityScores[ability] = newScore;
+            document.getElementById(`${ability}-score`).textContent = newScore;
+            updateRemainingPoints();
+        } else {
+            alert("Not enough points remaining.");
+        }
+    }
+
+    function decreaseScore(ability) {
+        const currentScore = abilityScores[ability];
+        const newScore = currentScore - 1;
+        if (newScore < 8) return;
+
+        const currentCost = calculateCost(currentScore);
+        const newCost = calculateCost(newScore);
+
+        const costDifference = currentCost - newCost;
+        remainingPoints += costDifference;
+        abilityScores[ability] = newScore;
+        document.getElementById(`${ability}-score`).textContent = newScore;
+        updateRemainingPoints();
+    }
+
+    function finalizePointBuy() {
+    document.getElementById("availableScores").innerHTML = ''; // Clear previous draggable items
+    for (const [ability, score] of Object.entries(abilityScores)) {
+        const scoreElement = document.createElement("div");
+        scoreElement.className = "result-item punt";
+        scoreElement.draggable = true;
+        scoreElement.ondragstart = drag;
+        scoreElement.id = `${ability}-draggable`;
+        scoreElement.textContent = `${score}`; // Show only the score
+        document.getElementById("availableScores").appendChild(scoreElement);
+    }
+}
+
+    // Allow the drop event
+function allowDrop(event) {
+    event.preventDefault();
+}
+
+// Handle the drag event
+function drag(event) {
+    event.dataTransfer.setData("text", event.target.id); // Store the id of the dragged element
+}
+
+// Handle the drop event
+function drop(event) {
+    event.preventDefault();
+    const draggedElementId = event.dataTransfer.getData("text"); // Retrieve the id of the dragged element
+    const draggedElement = document.getElementById(draggedElementId);
+    const dropZone = event.target;
+
+    // Ensure the drop zone only accepts one element
+    if (!dropZone.hasChildNodes()) {
+        // Append the dragged element to the drop zone
+        dropZone.appendChild(draggedElement);
+
+        // Extract the score value from the dragged element's text content
+        const score = parseInt(draggedElement.textContent.trim(), 10);
+
+        // Calculate the modifier
+        const modifier = calculateModifier(score);
+
+        // Create a span to display the modifier
+        const modifierSpan = document.createElement("span");
+        modifierSpan.className = "modifier-display";
+        modifierSpan.textContent = ` (${modifier >= 0 ? '+' : ''}${modifier})`;
+
+        // Add the modifier span to the drop zone
+        dropZone.appendChild(modifierSpan);
+    } else {
+        alert("This drop zone is already occupied.");
+    }
+}
+
+// Function to calculate the modifier based on the score
+function calculateModifier(score) {
+    return Math.floor((score - 10) / 2);
+}
+
+// Function to calculate the modifier
+function calculateModifier(abilityScore) {
+    return Math.floor((abilityScore - 10) / 2);
+}
+
+// Function to update skills
+function updateSkills() {
+    // Get the ability scores from the drop zones
+    const scores = {
+        strength: parseInt(document.getElementById('dropZone-1').textContent || 0, 10),
+        dexterity: parseInt(document.getElementById('dropZone-2').textContent || 0, 10),
+        intelligence: parseInt(document.getElementById('dropZone-4').textContent || 0, 10),
+        wisdom: parseInt(document.getElementById('dropZone-5').textContent || 0, 10),
+        charisma: parseInt(document.getElementById('dropZone-6').textContent || 0, 10),
+    };
+
+    // Calculate modifiers
+    const modifiers = {
+        strength: calculateModifier(scores.strength),
+        dexterity: calculateModifier(scores.dexterity),
+        intelligence: calculateModifier(scores.intelligence),
+        wisdom: calculateModifier(scores.wisdom),
+        charisma: calculateModifier(scores.charisma),
+    };
+
+    // Update each skill based on the mapping
+    const skillMapping = {
+        'Atletismo': modifiers.strength,
+        'Acrobacias': modifiers.dexterity,
+        'Juego de manos': modifiers.dexterity,
+        'Sigilo': modifiers.dexterity,
+        'Arcano': modifiers.intelligence,
+        'Historia': modifiers.intelligence,
+        'Investigación': modifiers.intelligence,
+        'Naturaleza': modifiers.intelligence,
+        'Religión': modifiers.intelligence,
+        'Trato de animales': modifiers.wisdom,
+        'Medicina': modifiers.wisdom,
+        'Percepción': modifiers.wisdom,
+        'Perspicacia': modifiers.wisdom,
+        'Supervivencia': modifiers.wisdom,
+        'Engaño': modifiers.charisma,
+        'Intimidación': modifiers.charisma,
+        'Interpretación': modifiers.charisma,
+        'Persuasión': modifiers.charisma,
+    };
+
+    // Update the buttons
+    document.querySelectorAll('.habilidad').forEach((habilidad) => {
+        const skillName = habilidad.querySelector('.hab').textContent;
+        const modifier = skillMapping[skillName] ?? 0; // Default to 0 if skill isn't mapped
+        habilidad.querySelector('.rango').textContent = modifier;
+    });
+}
+
+// Add event listeners to trigger updates on drop
+document.querySelectorAll('.drop-zone').forEach((zone) => {
+    zone.addEventListener('drop', updateSkills);
+    zone.addEventListener('dragover', (e) => e.preventDefault());
+});
+</script>
+
+</html>
